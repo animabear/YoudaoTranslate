@@ -30,7 +30,7 @@ class Translate{
 		$res = json_decode( $res );
 		if ($res->errorCode == 0) {
 			$workflows->result(     $query,
-									$res->translation[0],
+									$query,
 									$res->translation[0],
 									$query,
 									"translate.png");
@@ -45,13 +45,13 @@ class Translate{
 					$phonetic .= " [英: ".$res->basic->{'uk-phonetic'}."]";
 
 				if (!empty($phonetic))
-					$workflows->result('', $phonetic, $phonetic, $query, "translate.png");
+					$workflows->result('', $query, $phonetic, $query, "translate.png");
 
 				$explains = $res->basic->explains;
 
 				foreach ($explains as $key => $value) {
 					$workflows->result($key,
-									$value,
+									$query,
 									$value,
 									$query,
 									"translate.png");
@@ -62,17 +62,17 @@ class Translate{
 				$web = $res->web;
 				foreach ($web as $key => $item) {
 					$workflows->result($key,
-									implode(",", $item->value),
+									$query,
 									implode(",", $item->value),
 									$item->key,
 									"translate.png");
 				}
 			}
-			
+
 		}else{
 			$workflows->result(	'',
 		  						'',
-					  			'没查到呀', 
+					  			'没查到呀',
 					  			'没找到对应的翻译',
 					  			'translate.png',false);
 		}
