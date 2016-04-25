@@ -1,8 +1,16 @@
 YoudaoTranslate
 ===============
 
-Alfred Youdao Translate Workflow
+#### 我的修改
+修改 translate.php 中$workflows->result的第二个参数为 $query，这样配置"Open URL" Action的时候，{query}的值为用户输入的值，而非搜索结果。
 
+#### 在Alfred中配置 "Open URL" Action 实现回车跳转有道搜索
+
+URL设置为：http://dict.youdao.com/w/{query}
+
+---
+
+Alfred Youdao Translate Workflow
 
 ![screenshot](https://raw.githubusercontent.com/wensonsmith/YoudaoTranslate/master/src/screenshot.png)
 
